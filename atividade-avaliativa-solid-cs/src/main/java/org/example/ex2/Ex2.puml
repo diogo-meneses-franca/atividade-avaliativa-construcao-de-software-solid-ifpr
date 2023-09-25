@@ -1,0 +1,33 @@
+@startuml
+
+class FormaGeometricaTest{
+    #FormaGeometrica formaGeometrica;
+
+}
+FormaGeometricaTest o-- Formageometrica : use
+
+interface Formageometrica{
+    double calcularArea();
+}
+
+class Quadrado implements Formageometrica{
+    +double lado;
+    +double calcularArea();
+}
+
+class Triangulo implements Formageometrica{
+    + double base;
+    + double altura;
+    + double calcularArea();
+}
+
+class Circulo implements Formageometrica{
+    + double raio;
+    + double calcular()
+}
+
+
+
+
+
+@enduml

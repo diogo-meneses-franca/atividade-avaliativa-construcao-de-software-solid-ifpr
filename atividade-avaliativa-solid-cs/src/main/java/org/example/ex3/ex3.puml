@@ -1,0 +1,28 @@
+@startuml
+
+class SemanaTest{
+    -Idioma idioma;
+}
+
+class Semana{
+    -Idioma idioma;
+    imprimeDiaSemana();
+}
+
+Semana o-- Idioma : use
+SemanaTest o-- Semana: use
+
+interface Idioma{
+    String getDiaDaSemana();
+}
+class Portugues implements Idioma{
+    -Map diasDaSemana;
+    +getDiaDaSemana();
+}
+
+class Ingles implements Idioma{
+    -Map daysOfTheWeek;
+    +getDiaDaSemana();
+}
+
+@enduml

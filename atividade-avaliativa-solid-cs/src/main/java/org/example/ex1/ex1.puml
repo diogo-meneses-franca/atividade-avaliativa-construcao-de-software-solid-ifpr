@@ -1,0 +1,59 @@
+@startuml
+
+skin rose
+
+title Exercício 1
+
+
+abstract class Pessoa {
+  -String nome
+  -String cpf
+  -String dataNascimento
+
+}
+
+
+interface PessoaService{
+  +void aprender()
+  +void caminhar()
+  +void comer()
+}
+
+class Programadora extends Pessoa{
+  -String empresa
+  -String[] linguagemDeProgramacao
+
+}
+
+interface ProgramadoraService extends PessoaService{
+  void codificar()
+}
+
+class ProgramadoraServiceImpl implements ProgramadoraService{
+}
+class Dancarina extends Pessoa{
+  -String grupo
+  -String[] estiloDeDanca
+}
+
+interface DancarinaService extends PessoaService{
+  void dancar()
+}
+
+class DancarinaServiceImpl implements DancarinaService{
+}
+class Cantora extends Pessoa{
+  -String banda
+  -String[] generosMusicais
+
+}
+
+interface CantoraService extends PessoaService{
+  void cantar()
+}
+
+class CantoraServiceImpl implements CantoraService{
+}
+
+
+@enduml
