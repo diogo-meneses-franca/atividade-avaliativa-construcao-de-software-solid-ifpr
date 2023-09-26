@@ -1,0 +1,42 @@
+@startuml
+
+class TesteCalculoIFPR{
+    -IRPF ifpr;
+}
+TesteCalculoIFPR o-- IRPF : use
+IRPF o-- EstrategiaDeCalculoDeImposto : use
+
+class IRPF{
+    -EstrategiaDeCalculoDeImposto estrategia;
+
+    +caculaImposto();
+    -ehZeroAliquota();
+    -ehAliquota7();
+    -ehAliquota15();
+    -ehAliquota22();
+    -ehAliquota27();
+
+}
+
+interface EstrategiaDeCalculoDeImposto{
+    double calculaImposto();
+}
+
+class Aliquota7 implements EstrategiaDeCalculoDeImposto{
+    double calculaImposto();
+}
+
+class Aliquota15 implements EstrategiaDeCalculoDeImposto{
+    double calculaImposto();
+}
+
+class Aliquota22 implements EstrategiaDeCalculoDeImposto{
+    double calculaImposto();
+}
+
+class Aliquota27 implements EstrategiaDeCalculoDeImposto{
+    double calculaImposto();
+}
+
+
+@enduml
