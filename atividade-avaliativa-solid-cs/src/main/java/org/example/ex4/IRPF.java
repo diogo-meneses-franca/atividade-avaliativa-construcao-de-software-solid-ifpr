@@ -2,25 +2,18 @@ package org.example.ex4;
 
 public class IRPF {
 
-    private EstrategiaDeCalculoDeImposto estrategia;
-
     public double calculaImposto(double salario){
-        double imposto = 0;
+        double imposto;
         if(ehZeroAliquota(salario)){
             return 0;
         } else if (ehAliquota7(salario)) {
-           this.estrategia = new Aliquota7();
-           imposto = estrategia.calculaImposto(salario);
+           imposto = calculoAliquota7eMeio(salario);
         } else if (ehAliquota15(salario)) {
-            this.estrategia = new Aliquota15();
-            imposto = estrategia.calculaImposto(salario);
+            imposto = calculoAliquota15(salario);
         } else if (ehAliquota22(salario)) {
-            this.estrategia = new Aliquota22();
-            imposto = estrategia.calculaImposto(salario);
-
+            imposto = calculoAliquota22EMeio(salario);
         }else if(ehAliquota27(salario)){
-            this.estrategia = new Aliquota27();
-            imposto = estrategia.calculaImposto(salario);
+            imposto = calculoAliquota27EMeio(salario);
         }else{
             imposto = -1;
         }
@@ -44,5 +37,25 @@ public class IRPF {
 
     private boolean ehAliquota27(double salario){
         return (salario > 4664.68)? true : false;
+    }
+
+    private double calculoAliquota7eMeio(double salario){
+        String resultado = String.format("%.2f",(salario * 0.075)).replace(",", ".");
+        return Double.parseDouble(resultado);
+    }
+
+    private double calculoAliquota15(double salario){
+        String resultado = String.format("%.2f",(salario * 0.15)).replace(",", ".");
+        return Double.parseDouble(resultado);
+    }
+
+    private double calculoAliquota22EMeio(double salario){
+        String resultado = String.format("%.2f",(salario * 0.225)).replace(",", ".");
+        return Double.parseDouble(resultado);
+    }
+
+    private double calculoAliquota27EMeio(double salario){
+        String resultado = String.format("%.2f",(salario * 0.275)).replace(",", ".");
+        return Double.parseDouble(resultado);
     }
 }
