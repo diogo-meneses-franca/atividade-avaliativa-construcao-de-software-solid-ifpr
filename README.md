@@ -27,7 +27,8 @@ a qualidade do código existente. Também foi respeitado o princípio Single Res
 e ao atribuir a cada Idioma (PortuguesImpl, InglesImpl) a sua respectiva estrutura de dados contendo os dias da semana. O princípio Interface Segregation e Dependency Inversion foram aplicados ao se criar as interfaces Portugues e Ingles. Note que essas interfaces estão vazias, mas que suas existências permitem que PortuguêsImpl e InglêsImpl sejam classes independentes e extensíveis. Isso faz com que caso Português futuramente precise ter um método exclusivo, a interface Idioma não precise ser alterada, pois ao inserir um
   novo método em Idioma estariamos obrigando InglesImpl a implementar esse mesmo método ainda que vazio, o que geraria poluição no código. 
 
-4: 
+4: Na alternativa quatro fiquei em dúvida se deveria aplicar um pattern para a solução, já que o cálculo do imposto é algo simples e pode se feito com apenas uma linha de código. Por fim fiz com a pattern mas decidi por refatorar e removê-lo.
+Quanto aos princípios SOLID talvez haja uma quebra do princípio Opem/Closed pois na unica classe utilizada na implementação as alterações são evidentes caso alguma mudança no cálculo do imposto seja feita.
 
 
 5: As respostas desse exercício já estão contidas em cada resposta dos exercícios anteriores separadamente.
