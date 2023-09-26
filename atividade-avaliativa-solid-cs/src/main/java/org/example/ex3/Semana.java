@@ -1,7 +1,7 @@
 package org.example.ex3;
 
 public class Semana {
-    private Idioma idioma = new Portugues();
+    private Idioma idioma = new PortuguesImpl();
 
 
     public String imprimeDiaSemana(int dia){

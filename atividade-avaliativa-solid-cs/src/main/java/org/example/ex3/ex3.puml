@@ -15,12 +15,17 @@ SemanaTest o-- Semana: use
 interface Idioma{
     String getDiaDaSemana();
 }
-class Portugues implements Idioma{
+
+interface Portugues extends Idioma{}
+
+class PortuguesImpl implements Portugues{
     -Map diasDaSemana;
     +getDiaDaSemana();
 }
 
-class Ingles implements Idioma{
+interface Ingles extends Idioma{}
+
+class InglesImpl implements Ingles{
     -Map daysOfTheWeek;
     +getDiaDaSemana();
 }

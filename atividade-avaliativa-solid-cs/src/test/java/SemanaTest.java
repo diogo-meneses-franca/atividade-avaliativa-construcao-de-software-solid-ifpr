@@ -1,6 +1,4 @@
-import org.example.ex3.Idioma;
-import org.example.ex3.Ingles;
-import org.example.ex3.Semana;
+import org.example.ex3.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +9,7 @@ public class SemanaTest {
     @Test
     public void idiomaPadraoEhPortugues(){
         String resultado = semana.getIdioma().getClass().getSimpleName();
-        Assertions.assertEquals("Portugues", resultado);
+        Assertions.assertEquals("PortuguesImpl", resultado);
     }
 
     @Test
@@ -22,9 +20,17 @@ public class SemanaTest {
 
     @Test
     public void diaDaSemanaNoIdiomaIngles(){
-        Idioma ingles = new Ingles();
+        Idioma ingles = new InglesImpl();
         semana.setIdioma(ingles);
         String resultado = semana.imprimeDiaSemana(1);
         Assertions.assertEquals("Sunday", resultado);
+    }
+
+    @Test
+    public void diaDaSemananoIdiomaPortugues(){
+        Idioma portugues = new PortuguesImpl();
+        semana.setIdioma(portugues);
+        String resultado = semana.imprimeDiaSemana(2);
+        Assertions.assertEquals("Segunda-feira", resultado);
     }
 }
